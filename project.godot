@@ -15,6 +15,14 @@ run/main_scene="uid://7gmkm2n8y22h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/resizable=false
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+
 [file_customization]
 
 folder_colors={
@@ -50,6 +58,7 @@ move_right={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 
