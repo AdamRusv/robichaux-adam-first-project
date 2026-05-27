@@ -49,17 +49,17 @@ script = ExtResource("1_1tdcd")
 animationPlayer = NodePath("AnimationPlayer")
 endPos = 70.0
 
-[node name="Moving Platform2" type="AnimatableBody2D" parent="." unique_id=1000783213]
+[node name="CollisionObject2D" type="AnimatableBody2D" parent="." unique_id=1000783213]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving Platform2" unique_id=1774940220]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionObject2D" unique_id=1774940220]
 shape = SubResource("RectangleShape2D_ms375")
 
-[node name="Sprite2D" type="Sprite2D" parent="Moving Platform2" unique_id=1227111936]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObject2D" unique_id=1227111936]
 texture = ExtResource("1_ms375")
 region_enabled = true
 region_rect = Rect2(256, 191, 32, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2016097282]
-root_node = NodePath("../Moving Platform2")
+root_node = NodePath("../CollisionObject2D")
 libraries/ = SubResource("AnimationLibrary_mb26n")
 autoplay = &"ocillate"

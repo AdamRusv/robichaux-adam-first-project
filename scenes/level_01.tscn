@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj6xu86fphe7g" path="res://assets/2D Resources/tilesets/tileset.png" id="2_mofoo"]
 [ext_resource type="Texture2D" uid="uid://bc2jyqqbo1jfa" path="res://assets/2D Resources/tilesets/props.png" id="3_mofoo"]
 [ext_resource type="PackedScene" uid="uid://cnjhccltx7wbe" path="res://scenes/moving_platform.tscn" id="4_nr3cb"]
+[ext_resource type="PackedScene" uid="uid://nmv51dldcyh1" path="res://scenes/coin.tscn" id="5_j60wy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j60wy"]
 texture = ExtResource("2_mofoo")
@@ -420,3 +421,15 @@ tile_set = SubResource("TileSet_t0ybu")
 [node name="Moving Platform" parent="." unique_id=1000783213 instance=ExtResource("4_nr3cb")]
 position = Vector2(112, 24)
 endPos = 128.0
+
+[node name="Coin" parent="." unique_id=1685548085 instance=ExtResource("5_j60wy")]
+position = Vector2(112, 8)
+
+[node name="Coin3" parent="." unique_id=1732098455 instance=ExtResource("5_j60wy")]
+position = Vector2(152, -16)
+
+[node name="Coin4" parent="." unique_id=851599019 instance=ExtResource("5_j60wy")]
+position = Vector2(200, -16)
+
+[node name="Coin2" parent="." unique_id=1518224922 instance=ExtResource("5_j60wy")]
+position = Vector2(240, 8)

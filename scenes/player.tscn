@@ -55,7 +55,6 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=195626493]
-zoom = Vector2(2.06, 2.06)
 limit_left = -320
 limit_top = -180
 limit_right = 640

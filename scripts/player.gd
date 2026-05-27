@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+class_name PlayerCharacter
+
+const SPEED : int = 130
+const JUMP_VELOCITY : int = -300
+
+func _ready() -> void:
+	add_to_group("Player")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
