@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cksuufu8io707"]
+
+[ext_resource type="Script" uid="uid://cg3deqso83fra" path="res://scripts/fruit.gd" id="1_yvtr8"]
+[ext_resource type="Texture2D" uid="uid://dglklea84s1ys" path="res://assets/2D Resources/items/fruit.png" id="2_yvtr8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2alg"]
+atlas = ExtResource("2_yvtr8")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64keg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2alg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fruit" type="Area2D" unique_id=1685548085 node_paths=PackedStringArray("timer")]
+script = ExtResource("1_yvtr8")
+timer = NodePath("Health Buff Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=179920614]
+shape = SubResource("CircleShape2D_i64fm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=388893746]
+sprite_frames = SubResource("SpriteFrames_64keg")
+autoplay = "default"
+
+[node name="Health Buff Timer" type="Timer" parent="." unique_id=1384888882]
+one_shot = true

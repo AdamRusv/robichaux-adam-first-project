@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cbkkugjcmp6il"]
+
+[ext_resource type="Script" uid="uid://v8u2doys681j" path="res://scripts/slime enemy.gd" id="1_d2d6o"]
+[ext_resource type="Texture2D" uid="uid://bge75rg7j1bc8" path="res://assets/2D Resources/enemies/Red Slime Spritesheet.png" id="2_d2d6o"]
+[ext_resource type="PackedScene" uid="uid://bwliy8sp5i6s1" path="res://scenes/killbox.tscn" id="3_478b0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j77a3"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_478b0"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l61my"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05ss"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlex5"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc5xs"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txqk0"]
+atlas = ExtResource("2_d2d6o")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkajx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j77a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_478b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l61my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc5xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txqk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0mw"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2blxa"]
+size = Vector2(10, 2)
+
+[node name="Red Slime Enemy" type="Node2D" unique_id=2028809162 node_paths=PackedStringArray("sprite", "leftRaycast", "rightRaycast", "crushCollider")]
+script = ExtResource("1_d2d6o")
+moveSpeed = 50
+sprite = NodePath("AnimatedSprite2D")
+leftRaycast = NodePath("Left Raycast")
+rightRaycast = NodePath("Right Raycast")
+crushCollider = NodePath("Crush Collider")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1802616908]
+sprite_frames = SubResource("SpriteFrames_bkajx")
+autoplay = "default"
+
+[node name="Left Raycast" type="RayCast2D" parent="." unique_id=2144552226]
+position = Vector2(0, 3)
+target_position = Vector2(-8, 0)
+
+[node name="Right Raycast" type="RayCast2D" parent="." unique_id=564530560]
+position = Vector2(0, 3)
+target_position = Vector2(8, 0)
+
+[node name="Killbox" parent="." unique_id=1608047883 instance=ExtResource("3_478b0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox" unique_id=558592970]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_fq0mw")
+
+[node name="Crush Collider" type="Area2D" parent="." unique_id=1631763064]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crush Collider" unique_id=2101991583]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_2blxa")

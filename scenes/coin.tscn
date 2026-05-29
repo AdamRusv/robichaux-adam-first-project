@@ -98,8 +98,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coin" type="Area2D" unique_id=1685548085]
+[node name="Coin" type="Area2D" unique_id=1685548085 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_i64fm")
+timer = NodePath("Speed Buff Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=179920614]
 shape = SubResource("CircleShape2D_i64fm")
@@ -107,3 +108,6 @@ shape = SubResource("CircleShape2D_i64fm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=388893746]
 sprite_frames = SubResource("SpriteFrames_ssuvv")
 autoplay = "default"
+
+[node name="Speed Buff Timer" type="Timer" parent="." unique_id=1384888882]
+one_shot = true

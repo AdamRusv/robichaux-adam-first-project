@@ -3,7 +3,7 @@ extends Area2D
 @export_category("References")
 @export var timer : Timer
 @export_category("Speed Buff")
-@export var speedIncrease : int = 20
+@export var healthIncrease : int = 20
 @export var duration : float = 2.0
 
 var collected : bool = false
@@ -13,7 +13,7 @@ func _ready() -> void:
 	_set_timer()
 func _set_connections():
 	body_entered.connect(_player_enter)
-	timer.timeout.connect(_remove_collected_coin)
+	timer.timeout.connect(_remove_bonus_health)
 func _set_timer():
 	timer.wait_time = duration
 
@@ -24,21 +24,21 @@ func _player_enter(body : Node2D):
 	
 	if body.is_in_group("Player"):
 		player = body as PlayerCharacter
-		GameData._add_one_coin()
 		
-		_start_speed_buff()
+		_start_health_buff()
 		visible = false
 		collected = true
 
-func _start_speed_buff():
+func _start_health_buff():
 	timer.start()
 	
-	if player.has_meta("CoinSpeedBuff") == false:
-		player.bonusSpeed += speedIncrease
+	if player.has_meta("FruitHealthBuff") == false:
+		player.bonusHealth += healthIncrease
+		player._heal(healthIncrease)
 	
-	player.set_meta("CoinSpeedBuff", true)
-func _remove_collected_coin():
-	if player.has_meta("CoinSpeedBuff"):
-		player.bonusSpeed -= speedIncrease
-		player.remove_meta("CoinSpeedBuff")
+	player.set_meta("FruitHealthBuff", true)
+func _remove_bonus_health():
+	if player.has_meta("FruitHealthBuff"):
+		player.bonusHealth -= healthIncrease
+		player.remove_meta("FruitHealthBuff")
 	queue_free()

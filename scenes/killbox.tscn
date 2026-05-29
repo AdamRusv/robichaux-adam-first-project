@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bwliy8sp5i6s1"]
+
+[ext_resource type="Script" uid="uid://2aon2ykvc838" path="res://scripts/killbox.gd" id="1_hsvkp"]
+
+[node name="Killbox" type="Area2D" unique_id=1608047883]
+script = ExtResource("1_hsvkp")
