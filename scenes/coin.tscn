@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3ycgpxqq7pqi" path="res://scripts/coin.gd" id="1_i64fm"]
 [ext_resource type="Texture2D" uid="uid://daw37jq874nc1" path="res://assets/2D Resources/items/coin.png" id="1_rwqht"]
+[ext_resource type="AudioStream" uid="uid://eegkoj5fylaj" path="res://assets/2D Resources/sounds/sfx_coin.ogg" id="3_11l1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
 radius = 8.0
@@ -98,9 +99,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coin" type="Area2D" unique_id=1685548085 node_paths=PackedStringArray("timer")]
+[node name="Coin" type="Area2D" unique_id=1685548085 node_paths=PackedStringArray("timer", "soundRef")]
 script = ExtResource("1_i64fm")
 timer = NodePath("Speed Buff Timer")
+soundRef = NodePath("AudioStreamPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=179920614]
 shape = SubResource("CircleShape2D_i64fm")
@@ -111,3 +113,7 @@ autoplay = "default"
 
 [node name="Speed Buff Timer" type="Timer" parent="." unique_id=1384888882]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1232959899]
+stream = ExtResource("3_11l1o")
+bus = &"SFX"

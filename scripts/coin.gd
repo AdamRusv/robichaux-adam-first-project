@@ -2,6 +2,7 @@ extends Area2D
 
 @export_category("References")
 @export var timer : Timer
+@export var soundRef : AudioStreamPlayer
 @export_category("Speed Buff")
 @export var speedIncrease : int = 20
 @export var duration : float = 2.0
@@ -24,6 +25,7 @@ func _player_enter(body : Node2D):
 	
 	if body.is_in_group("Player"):
 		player = body as PlayerCharacter
+		soundRef.play()
 		GameData._add_one_coin()
 		
 		_start_speed_buff()
